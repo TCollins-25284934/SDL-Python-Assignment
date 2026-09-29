@@ -20,9 +20,16 @@ def check_number(number,CompWord_list, intuple_list):
     # print(starts)
     # print(ends)
     for i,j in enumerate(dct.keys()):
+        # print(i,j)
+        # print(starts[i])
+        # print(ends[i])
+        # print(dct[j])
+        pass
+    for i,j in enumerate(dct.keys()):
         # print(number)
         # print(i,j, dct[j])
         # print(starts[i], ends[i], CompWord_list[i])
+        pass
         if number % j == 0 and number % dct[j]== 0:
             return CompWord_list[i]
 
