@@ -1,6 +1,6 @@
 def generate_list(end_number):
     for i in range(1, end_number+1):
-        print(check_number(i, ["FizzBuzz","FangBang", 'SlamDunk'], [(3,5),(7,11),(4,13)]))
+        check_number(i, ["FizzBuzz","FangBang", 'SlamDunk'], [(3,5),(7,11),(4,13)])
 
 def split_string(given_str):
     a, b = given_str[:len(given_str)// 2], given_str[len(given_str)// 2:]
@@ -17,23 +17,29 @@ def split_string_list(CompWord_list):
 def check_number(number,CompWord_list, intuple_list):
     starts, ends = split_string_list(CompWord_list)
     dct = dict(intuple_list)
-    # print(starts)
-    # print(ends)
+    print(starts)
+    print(ends)
+    for i,j in enumerate(dct.keys()):
+        print(i,j)
+        print(starts[i])
+        print(ends[i])
+        print(dct[j])
     for i,j in enumerate(dct.keys()):
         # print(number)
         # print(i,j, dct[j])
         # print(starts[i], ends[i], CompWord_list[i])
-        if number % j == 0 and number % dct[j]== 0:
-            return CompWord_list[i]
-
-        elif number % j == 0:
-            return starts[i]
-
-        elif number % dct[j] == 0:
-            return ends[i]
-
-    else:
-        return number
+        pass
+    #     if number % j == 0 and number % dct[j]== 0:
+    #         return CompWord_list[i]
+    #
+    #     elif number % j == 0:
+    #         return starts[i]
+    #
+    #     elif number % dct[j] == 0:
+    #         return ends[i]
+    #
+    # else:
+    #     return number
 def main():
     generate_list(102)
 
