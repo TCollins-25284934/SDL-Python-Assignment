@@ -68,25 +68,25 @@ ax.plot(wave, flux)
 ax.plot(wave, my_line(wave, *popt), 'r--')
 plt.show()
 
-# def gaussian(x, A, mu, sigma, c):
-#     return A * np.exp(-(x - mu)**2 / (2*sigma**2)) + c
-# c0 = np.median(flux)
-#
-# A0 = np.max(flux) - c0
-#
-# mu0 = wave[np.argmax(flux)]
-#
-# sigma0 = 2.0
-#
-# p0 = [A0, mu0, sigma0, c0]
-#
-# popt, pcov = curve_fit(
-#     gaussian,
-#     wave,
-#     flux,
-#     p0=p0
-# )
-# fig, ax = plt.subplots(figsize=(10,10))
-# ax.plot(wave, flux)
-# ax.plot(wave, gaussian(wave, *popt), 'r--')
-# plt.show()
+def gaussian(x, A, mu, sigma, c):
+    return A * np.exp(-(x - mu)**2 / (2*sigma**2)) + c
+c0 = np.median(flux)
+
+A0 = np.max(flux) - c0
+
+mu0 = wave[np.argmax(flux)]
+
+sigma0 = 2.0
+
+p0 = [A0, mu0, sigma0, c0]
+
+popt, pcov = curve_fit(
+    gaussian,
+    wave,
+    flux,
+    p0=p0
+)
+fig, ax = plt.subplots(figsize=(10,10))
+ax.plot(wave, flux)
+ax.plot(wave, gaussian(wave, *popt), 'r--')
+plt.show()
