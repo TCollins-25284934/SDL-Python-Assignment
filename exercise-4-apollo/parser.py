@@ -8,6 +8,17 @@ units in the row below the header row of table.
 This script requires that 'numpy', 'matplotlib' be installed within the Python
 environment you are running this script in. Plotting a coloured ground-track based on altitude is achieved using
 the plot_colourline() function posted by Alejandro on Stack Overflow: https://stackoverflow.com/a/36521456.
+
+A coloured ground-track plot is given by default, to output a non-coloured ground-track plot, the user must pass
+--non_coloured True
+after calling the script
+
+Examples
+-------
+python parser.py as-505-ascent-phase-data.txt
+python parser.py as-505-ascent-phase-data.txt --non_coloured True
+
+
 """
 
 import csv
@@ -92,6 +103,7 @@ def parser(filename):
     else:
         # Non-coloured ground track
         fig, ax = plt.subplots()
+        im = plt.imread(map_path)
         ax.imshow(im, extent=[-120,-30,15,60])
         plt.plot(nptable_dict["LONG"], nptable_dict["GC LAT"])
         ax.set_xlabel("Longitude")

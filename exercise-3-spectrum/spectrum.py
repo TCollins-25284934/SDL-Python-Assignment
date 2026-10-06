@@ -6,9 +6,8 @@ This script will parse spectrum emission data from a .txt file and plot the flux
 3. The combined gaussian and continuum model over the whole dataset.
 The script will output to the console the best fit parameters of the combined model.
 
-Microsoft Co-pilot was used to draft docstrings and headers, along with brainstorming for plotting and fitting
-
-
+This script requires that 'numpy', 'matplotlib', and 'scipy' be installed within the Python
+environment you are running this script in.
 """
 import csv
 import argparse
