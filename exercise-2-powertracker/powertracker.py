@@ -40,7 +40,7 @@ def powertracker():
         Prints the generated results and summary statistics
         to the console.
     """
-    i =0
+    i=0
     nums = []
     flag = False
     while flag == False:
@@ -54,7 +54,7 @@ def powertracker():
             new_num = num**2
             nums.append(new_num)
             print(f"Loop {i+1}: {num}^2 = {new_num}")
-        # print(new_num, nums[i-1])
+
         if new_num % nums[i-1] == 0 and i != 0 and nums[i-1] != 1:
             print(f"{new_num} is divisible by {nums[i-1]}")
             flag = True
@@ -66,7 +66,7 @@ def powertracker():
 
 def main():
     powertracker()
-# main()
+
 def parse_arguments():
     parser = argparse.ArgumentParser(description="""PowerTracker
                                                     

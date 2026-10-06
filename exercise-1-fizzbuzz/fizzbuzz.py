@@ -20,7 +20,7 @@ functions:
 """
 import argparse
 
-def generate_list(end_number, Factor_list, Compword_list):
+def generate_list(end_number, factor_list, comp_word_list):
     """
     Generates and prints a custom FizzBuzz sequence from 1 up to
     the specified end number and prints either the
@@ -45,7 +45,7 @@ def generate_list(end_number, Factor_list, Compword_list):
         Prints the sequence to the console.
     """
     for i in range(1, end_number+1):
-        print(check_number(i, Factor_list, Compword_list))
+        print(check_number(i, factor_list, comp_word_list))
 
 def split_string(given_str):
     """
@@ -66,7 +66,7 @@ def split_string(given_str):
     a, b = given_str[:len(given_str)// 2], given_str[len(given_str)// 2:]
     return a, b
 
-def split_string_list(CompWord_list):
+def split_string_list(comp_word_list):
     """
     Split each compound word in a list into two halves using the split_string function.
 
@@ -83,12 +83,12 @@ def split_string_list(CompWord_list):
     """
     starts = []
     ends = []
-    for CompWord in CompWord_list:
-        starts.append(split_string(CompWord)[0])
-        ends.append(split_string(CompWord)[1])
+    for comp_word in comp_word_list:
+        starts.append(split_string(comp_word)[0])
+        ends.append(split_string(comp_word)[1])
     return starts, ends
 
-def check_number(number, intuple_list, CompWord_list):
+def check_number(number, factor_list, CompWord_list):
     """
     Determines the correct output for a number in the
     FizzBuzz sequence.
@@ -122,7 +122,7 @@ def check_number(number, intuple_list, CompWord_list):
     """
 
     starts, ends = split_string_list(CompWord_list)
-    factor_pairs = list(zip(intuple_list[::2], intuple_list[1::2]))
+    factor_pairs = list(zip(factor_list[::2], factor_list[1::2]))
     dct = dict(zip(factor_pairs, CompWord_list))
     result = ""
 
@@ -182,10 +182,10 @@ def validate_inputs(factors, word_list):
         if len(word) % 2 != 0:
             raise ValueError(f"'{word}' cannot be split evenly. Compound words must have an even number of characters.")
 
-def main(end_number, factors, Word_list):
-    validate_inputs(factors, Word_list)
+def main(end_number, factors, word_list):
+    validate_inputs(factors, word_list)
 
-    generate_list(end_number, factors, Word_list)
+    generate_list(end_number, factors, word_list)
 
 
 def parse_arguments():
@@ -200,11 +200,11 @@ def parse_arguments():
                                                     The example above creates the factor pairs (3,5) and (7,11).""")
     parser.add_argument('--end_number', type=int, default= 100, help="The length of the list you'd like to print, must be an integer value")
     parser.add_argument('--factors', nargs = "+", type = int, default = [3,5], help = "A space separated list of factor pairs, a printed number whose divisor is contained within this list will be substituted for the corresponding compound word in Word_list",)
-    parser.add_argument('--Word_list', nargs = "+", type = str, default = ["FizzBuzz"], help = "A space separated list of compound words that will be paired with the factor list, must have the same length as the factor List")
+    parser.add_argument('--word_list', nargs = "+", type = str, default = ["FizzBuzz"], help = "A space separated list of compound words that will be paired with the factor list, must have the same length as the factor List")
     return parser.parse_args()
 
 if __name__ == '__main__':
     args = parse_arguments()
-    main(args.end_number, args.factors, args.Word_list)
+    main(args.end_number, args.factors, args.word_list)
 
 
