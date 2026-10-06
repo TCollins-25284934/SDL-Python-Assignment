@@ -21,7 +21,7 @@ def powertracker():
 
     During each iteration, a random integer between 1 and 20 is
     generated and either squared or cubed. The result is stored and
-    compared against the previous result. 
+    compared against the previous result.
 
     The function tracks and reports:
         * The result generated during each iteration.
