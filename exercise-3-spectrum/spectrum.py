@@ -10,7 +10,7 @@ Microsoft Co-pilot was used to draft docstrings and headers, along with brainsto
 
 
 """
-
+import csv
 import argparse
 import numpy as np
 import matplotlib.pyplot as plt
